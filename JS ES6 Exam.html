@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script type="module" src="/Main.js" >
+        // 1: Write an arrow function that returns the string 'HelloWorld!'.
+
+            write=()=>{
+                console.log('HelloWorld!');
+            }
+            write()
+        
+        // 2: Swap two variables using one destructuring assignment.
+
+            person={ fname:"Syed",lname:"Mahemood"}
+            console.log(person)
+            let {fname:p,lname:q}=person
+            console.log(p);
+        
+        // 3:Remove duplicates items from an array using ES6 Set? 
+
+            let number = new Set([1, 2, 3, 4, 5, 5, 5, 5, 5, 5]);  
+            console.log(number);  
+
+        // 4: Write a JavaScript program to reverse the order of the characters in the string?
+
+            function string_reverse(str) 
+            {
+             return str.split("").reverse().join("");
+            }
+
+            console.log(string_reverse("Tekisky"));
+
+        // 5: Difference between Var let const (with example)?
+            // 1.The scope of the var keyword is the global or function scope. It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. 
+            // var a = 10
+            // function f(){
+            // console.log(a)
+            // }
+            // f();
+            // console.log(a);
+            // 2.let keyword in JavaScript: The let keyword is an improved version of the var keyword. The scope of a let variable is only block scoped.
+            // let a = 10;
+            // function f() {
+            // let b = 9
+            // console.log(b);
+            // console.log(a);
+            // }
+            // f();
+            // 3.The const keyword has all the properties that are the same as the let keyword, except the user cannot update it.Const is block scope When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared. 
+            // const a = 10;
+            // function f() {
+            // a = 9
+            // console.log(a)
+            // }
+            // f();
+
+        // 6: Convert the below expression Convert into an Arrow function?
+           
+        let numbers = [4,2,6];
+               numbers.sort((number)=(a,b)=>{
+               return b - a;
+               });
+               console.log(numbers);
+
+
+
+        // 7: In the following example console.log("Sum 2 + 3 = " + (2 + 3));
+        //             (convert into template literals)?
+
+            console.log(`Sum 2 + 3 =  + (2 + 3)`);
+
+        // 8: What are the default parameters?
+            
+            // ES6 allows function parameters to have default values.
+            function add(x, y = 10) {
+                return x+y;
+            }
+            // y is 10 if not passed or undefined
+            console.log(add(5));
+
+        // 9: Find sum of numbers with Rest Parameters?
+           
+            function multi(x,y,z,...arg){
+                return x+y+z
+            }
+            console.log(multi(1,2,3));
+
+        // 10: How to use Spread operator in Array and Object?(write a program)
+        //     arr = [1, 2, 3]; and obj = { a: 1, b: 2, c: 3 };
+
+            arr = [1, 2, 3];
+            let arr2=[...arr,4,5];
+            console.log(arr2);
+
+            obj = { a: 1, b: 2, c: 3 };
+            obj1={...obj,d:4}
+            console.log(obj1);
+
+        //  11: What are the Modules in ES6 with example?
+
+            // JavaScript modules help us to modularize the code simply by partitioning the entire code into modules that can be imported from anywhere. Modules make it easy to maintain the code, debug the code, and reuse the piece of code. Each module is a piece of code that gets executed once it is loaded.
+            // As modules support special keywords and features, we must tell the browser that a script should be treated as a module, by using the attribute     <script type="module">.
+
+                // export function sayHi(user) {
+                // alert(`Hello, ${user}!`);    from hi.js file 
+
+                // import {sayHi} from './hi.js';
+                // sayHi('John'); // Hello, John!   from main.js file
+            
+                
+        // 12: Explain map with example ?
+            // Map is a collection of elements where each element is stored as a Key, value pair. Map object can hold both objects and primitive values as either key or value. When we iterate over the map object it returns the key, value pair in the same order as inserted.
+
+            var roles = new Map([
+            ['r1', 'User'],
+            ['r2', 'Guest'],
+            ['r3', 'Admin'],
+            ]);
+
+            console.log(roles.get('r2'))
+
+        // 13: Explain Callback function with example?
+            // A Callback is a way to handle the function execution after the completion of the execution of another function.
+
+            // A Callback would be helpful in working with events. In Callback, a function can be passed as a parameter to another function.
+
+            x=()=>{
+            console.log(`function of x`);
+
+            }
+
+            y=(callback)=>{
+            console.log('function of y');
+            callback();
+            console.log('after call back');
+            }
+
+            y(x);
+
+        // 14: Explain Promise with example?
+
+            // The Promise represents the completion of an asynchronous operation. It returns a single value based on the operation being rejected or resolved. There are mainly three stages of the Promise,
+
+            // 1.Pending - It is the initial state of each Promise. It represents that the result has not been computed yet.
+
+            // 2.Fulfilled - It means that the operation has completed.
+
+            // 3.Rejected - It represents a failure that occurs during computation.
+            
+            let m= new Promise((reject,resolve)=>{
+
+            let a=1+3;
+            if(a===2){
+            resolve('success very good');
+            }else{
+            reject('fails');
+            }
+            })
+
+            m.then((message)=>{
+            console.log(`the condition is ${message}`);
+
+            }).catch((message)=>{
+            console.log(`the condition is ${message}`);
+            })
+            
+        // 15: what is ternary operator with example?
+            
+            // A ternary operator can be used to replace an if..else statement in certain situations.
+            // The ternary operator takes three operands, hence, the name ternary operator. It is also known as a conditional operator.
+
+            let marks = prompt('Enter your marks :');
+
+            // check the condition
+            let result = (marks >= 40) ? 'pass' : 'fail';
+
+            console.log(`You ${result} the exam.`);
+
+    </script>
+    
+</body>
+</html>
